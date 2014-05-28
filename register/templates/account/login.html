@@ -1,0 +1,21 @@
+{% extends "small-form.html" %}
+
+{% block header %}
+登陆进入 {{ conf_name_upper }} {{ conf_year }} 网站
+{% endblock %}
+
+{% block error %}
+Wrong email or password. Please try again.
+{% endblock %}
+
+{% block submit %}
+登陆
+{% endblock %}
+
+{% block epilog %}
+<div style="text-align: center">
+    <a href="/account/create/">创建帐户</a>
+    <span class="bar color">|</span>
+    <a href="/account/password/remind/">忘记密码?</a>
+</div>
+{% endblock %}

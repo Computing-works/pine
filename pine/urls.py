@@ -13,8 +13,8 @@ urlpatterns = patterns('',
 
 if settings.DEBUG:
     urlpatterns += patterns('',
-        (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_DEBUG_ROOT}),
+        (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     )
 
-handler404 = 'pine.register.views.handler404'
-handler500 = 'pine.register.views.handler500'
+handler404 = 'register.views.handler404'
+handler500 = 'register.views.handler500'
