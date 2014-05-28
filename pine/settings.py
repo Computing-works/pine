@@ -1,6 +1,7 @@
 import os
 
-DEBUG = True
+DEBUG = False
+
 ADMINS = ( ('John', 'john@example.com'), 
           ('Mary', 'mary@example.com'),
          )
@@ -33,11 +34,11 @@ USE_TZ = True
 MEDIA_ROOT = 'D://www/media/'
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = '/var/www/computing-works.com/static/'
+STATIC_ROOT = 'D://www/static/'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-                    "/home/html/static",
+ #                   "/home/html/static",
 )
 
 STATICFILES_FINDERS = (
@@ -123,9 +124,13 @@ LOGIN_REDIRECT_URL = '/'
 
 SEND_EMAIL = False
 
+MIN_PASSWORD_LEN = 6
+CHECK_STRENGTH = True
+
 CAPTCHA = {
     'fgcolor': '#254b6f',
     'imagesize': (200, 50),
 }
 
-MEDIA_DEBUG_ROOT = 'D://www/media/'
+
+
