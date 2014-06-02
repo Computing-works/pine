@@ -1,40 +1,48 @@
+from __future__ import with_statement
 import os
 
-DEBUG = False
+#
+# Configuration file must contain:
+#
+# DEBUG
+# DATABASE_ENGINE
+# DATABASE_NAME
+# DATABASE_USER
+# DATABASE_PASSWORD
+# DATABASE_HOST
+# DATABASE_PORT
+# SECRET_KEY
+# TIME_ZONE
+# LANGUAGE_CODE
+# USE_I18N
+# EMAIL_HOST
+# EMAIL_PORT
+# DEFAULT_FROM_EMAIL
+# MEDIA_ROOT
+# SEND_EMAIL
+# ADMINS
+#
+# See Django documentation for possible values.
+#
+path = os.path.expanduser(os.path.join(os.path.dirname(__file__), 'conf.py'))
 
-ADMINS = ( ('John', 'john@example.com'), 
-          ('Mary', 'mary@example.com'),
-         )
+if os.path.exists(path):
+    with open(path) as conf:
+        exec conf.read()
+else:
+    raise RuntimeError('configuration not found at %s' % path)
+
 TEMPLATE_DEBUG = DEBUG
 MANAGERS = ADMINS
 
-PROJECT_PATH =  os.path.dirname(os.path.abspath(__file__))
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME':  os.path.join(PROJECT_PATH,'../sqlite3.db'),
-    }
-}
-
-ALLOWED_HOSTS = ['127.0.0.1','0.0.0.0','*']
-
 TIME_ZONE = 'Asia/Shanghai'
-
 LANGUAGE_CODE = 'zh-cn'
-
 SITE_ID = 1
-
 kUSE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
-MEDIA_ROOT = 'D://www/media/'
 MEDIA_URL = '/media/'
-
-STATIC_ROOT = 'D://www/static/'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
@@ -46,7 +54,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-SECRET_KEY = 'haha#hehe'
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -70,7 +77,6 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'pine.urls'
 
 WSGI_APPLICATION = 'pine.wsgi.application'
-
 
 
 INSTALLED_APPS = (
@@ -121,8 +127,6 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 LOGIN_URL  = '/account/login/'
 LOGIN_REDIRECT_URL = '/'
-
-SEND_EMAIL = False
 
 MIN_PASSWORD_LEN = 6
 CHECK_STRENGTH = True
