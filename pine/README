@@ -1,1 +1,4 @@
 You should provide your own conf.py which adapts your own environment such as database, secret key, media/static root etc.
+
+
+Putting your specific conf.py in the same folder with settings.py
