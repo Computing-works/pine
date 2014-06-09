@@ -88,6 +88,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'register',
+    'captcha',
     'bootstrap_toolkit',
 )
 
