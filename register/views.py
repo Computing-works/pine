@@ -5,13 +5,23 @@ from django.template import RequestContext, Context, loader
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import login,logout
 
+from django.contrib.auth.models import User
+
 from register.forms import RegisterForm,RegistrationForm
+
+from django.conf import settings
 
 def _render_to_response(page, request, args=None):
     return render_to_response(page, RequestContext(request, args))
 
-def index_view(request):
-    return render(request,'register/index.html')
+def _render_template(request, **args):
+    local_args = {}
+    return _render_to_response(args.get('template'), request, local_args)
+
+def index_view(request, **args):
+    local_args = {}
+    local_args.update(args)
+    return _render_to_response('register/index.html', request, local_args)  
 
 def enrollment(request):
     if request.method == 'POST':

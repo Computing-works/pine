@@ -9,6 +9,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from contrib.captcha import CaptchaField
 from pine.settings import MIN_PASSWORD_LEN, CHECK_STRENGTH
 
+from captcha.fields import CaptchaField
+
 _digit = set(map(chr, range(48, 58)))
 _upper = set(map(chr, range(65, 91)))
 _lower = set(map(chr, range(97,123)))
@@ -85,9 +87,14 @@ class RegistrationForm(forms.Form):
 
         return last_name
 
-    captcha = CaptchaField(
-        required   = True,
-        label      = "安全码",
+#     captcha = CaptchaField(
+#         required   = True,
+#         label      = "安全码",
+#     )
+    
+    captcha2 = CaptchaField(
+        required = True,
+        label = u"安区码",
     )
 
     def clean_username(self):
