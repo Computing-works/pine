@@ -5,11 +5,14 @@ from django.conf import settings
 
 admin.autodiscover()
 
+import settings
 
 urlpatterns = patterns('',
     url(r'^', include('register.urls',namespace='regis')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^captcha/', include('captcha.urls')),
+    url(r'^weblog/', include('zinnia.urls')),
+    url(r'^comments/', include('django.contrib.comments.urls')),
 )
 
 if settings.DEBUG:

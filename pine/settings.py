@@ -60,6 +60,14 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 )
 
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
+TEMPLATE_CONTEXT_PROCESSORS += (
+  'django.contrib.auth.context_processors.auth',
+  'django.core.context_processors.i18n',
+  'django.core.context_processors.request',
+  'zinnia.context_processors.version',  # Optional
+)
+
 TEMPLATE_DIRS = (
     "/home/html/django_templates",
     os.path.join( PROJECT_PATH, 'templates'),
@@ -81,15 +89,19 @@ WSGI_APPLICATION = 'pine.wsgi.application'
 
 INSTALLED_APPS = (
     'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
+    'django.contrib.admin',
     'django.contrib.sites',
+    'django.contrib.comments',
+    'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.admin',
+    'django.contrib.contenttypes',
     'register',
     'captcha',
     'bootstrap_toolkit',
+    'tagging',
+    'mptt',
+    'zinnia',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'

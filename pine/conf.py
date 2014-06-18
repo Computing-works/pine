@@ -1,6 +1,6 @@
 import os
 
-DEBUG = True
+DEBUG = False
 
 ADMINS = ( ('John', 'john@example.com'), 
           ('Mary', 'mary@example.com'),
