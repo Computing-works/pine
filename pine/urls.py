@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     url(r'^captcha/', include('captcha.urls')),
     url(r'^weblog/', include('zinnia.urls')),
     url(r'^comments/', include('django.contrib.comments.urls')),
+    url(r'^wechat/$', 'wechat.views.index'),
 )
 
 if settings.DEBUG:
