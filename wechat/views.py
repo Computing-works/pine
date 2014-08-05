@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 import hashlib
 
-WECHAT_TOKEN = 'kareltopsecret2085'
+WECHAT_TOKEN = ''
 
 def index(request):
     token = WECHAT_TOKEN
@@ -22,4 +22,4 @@ def index(request):
         if sha1.hexdigest() == signature:
             return HttpResponse(echostr)
         
-    return HttpResponse(', '.join(tmpArr))
+    return HttpResponse(', '.join(['hello','there','!']))
