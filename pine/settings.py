@@ -46,7 +46,7 @@ MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
- #                   "/home/html/static",
+#	"/var/www/computing-works.com/static/",
 )
 
 STATICFILES_FINDERS = (
@@ -102,6 +102,7 @@ INSTALLED_APPS = (
     'tagging',
     'mptt',
     'zinnia',
+    'django-groundwork',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
