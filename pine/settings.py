@@ -103,6 +103,7 @@ INSTALLED_APPS = (
     'mptt',
     'zinnia',
     'django-groundwork',
+    'rest_framework',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'

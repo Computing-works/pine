@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     url(r'^weblog/', include('zinnia.urls')),
     url(r'^comments/', include('django.contrib.comments.urls')),
     url(r'^wechat/$', 'wechat.views.index'),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')) 
 )
 
 if settings.DEBUG:
