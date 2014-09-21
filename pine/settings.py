@@ -104,7 +104,15 @@ INSTALLED_APPS = (
     'zinnia',
     'django-groundwork',
     'rest_framework',
+    'restframe',
 )
+
+REST_FRAMEWORK = {
+   'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAdminUser',
+    ],
+    'PAGINATE_BY':10
+}
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 

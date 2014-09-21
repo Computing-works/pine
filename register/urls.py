@@ -3,12 +3,15 @@ from django.contrib.auth.views import \
             login,logout, \
             password_change,password_change_done,   \
             password_reset,password_reset_done,password_reset_confirm,password_reset_complete
+            
+from views import _render_template
 
 urlpatterns = patterns('register.views',
     url(r'^$', 'index_view', name='home'),
     url(r'^home/$', 'index_view'),
     
     url(r'^about/$','about_view',name='about'),
+    url(r'^register/$','_render_template',{'template':'register/regis-form.html'},name='register'),
     
     url(r'^account/create/$', 'account_create_view',name='create_user'),
     url(r'^account/login/$', login, name='login'),

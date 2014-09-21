@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Kid Coding - 报名注册</title>
+  {% load staticfiles %}
+  <link rel="stylesheet" href="{% static "register/css/cupertino/jquery-ui-1.10.4.custom.min.css" %}">
+  <script src="{% static "register/js/jquery-1.10.2.js" %}"></script>
+  <script src="{% static "register/js/jquery-ui-1.10.4.custom.min.js" %}"></script>
+  <script>
+  $(function() {
+    // fix the classes
+    $( ".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *" )
+      .removeClass( "ui-corner-all ui-corner-top" )
+      .addClass( "ui-corner-bottom" );
+ 
+    // move the nav to the bottom
+    $( ".tabs-bottom .ui-tabs-nav" ).appendTo( ".tabs-bottom" );
+    
+    $( "#tabs" ).tabs({
+      event: "mouseover"
+    });
+    
+  });
+  </script>
+  <style>
+  		/* force a height so the tabs don't jump as content height changes */
+  		#tabs .tabs-spacer { float: left; height: 200px; }
+  			.tabs-bottom .ui-tabs-nav { clear: left; padding: 0 .2em .2em .2em; }
+  			.tabs-bottom .ui-tabs-nav li { top: auto; bottom: 0; margin: 0 .2em 1px 0; border-bottom: auto; border-top: 0; }
+  			.tabs-bottom .ui-tabs-nav li.ui-tabs-active { margin-top: -1px; padding-top: 1px; }
+  </style>
+</head>
+<body>
+	<h1><a href="/">Computing-works</a> -- 报名注册</h1>
+ <hr />
+<div id="tabs" class="tabs-bottom">
+  <ul>
+    <li><a href="#tabs-1">家长</a></li>
+    <li><a href="#tabs-2">教师</a></li>
+  </ul>
+  <div id="tabs-1">
+  	<form role="form">
+  		<div class="form-group">
+    		<label for="exampleInputEmail1">邮箱或QQ:</label>
+    		<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email or QQ">
+  		</div>
+  		<div class="form-group">
+    		<label for="exampleInputPassword1">家长姓名:</label>
+    		<input type="text" class="form-control" id="exampleInputText" placeholder="张三">
+  		</div>
+  		<div class="form-group">
+    		<label for="exampleInputPassword1">家长电话:</label>
+    		<input type="text" class="form-control" id="exampleInputText" placeholder="1351234568/021-87523647">
+  		</div>
+  		<div class="form-group">
+    		<label for="exampleInputPassword1">孩子姓名:</label>
+    		<input type="text" class="form-control" id="exampleInputText" placeholder="小张">
+  		</div>
+  		<div class="form-group">
+    		<label for="exampleInputPassword1">孩子年龄:</label>
+    		<input type="text" class="form-control" id="exampleInputText" placeholder="10">
+  		</div>
+  		<div class="form-group">
+  			<label for="exampleInputPassword1">报名课程:</label>
+  			<select>
+  				<option value ="volvo">Karel机器人</option>
+  				<option value ="saab">3D作图</option>
+  				<option value="opel">Python课程</option>			
+  			</select>
+  		</div>
+  		
+  		<div class="form-group">
+    		<label for="exampleInputFile">课程建议</label>
+    		<input type="file" id="exampleInputFile">
+    		<p class="help-block">对本课程和活动安排的建议.</p>
+  		</div>
+  		
+  		<div class="checkbox">
+    		<label>
+    			
+      			<input type="checkbox"> 同意<a href="/">服务条款</a>
+    		</label>
+  		</div>
+  		<button type="submit" class="btn btn-default">Submit</button>
+	</form>
+    <p></p>
+  </div>
+  <div id="tabs-2">
+  	<form role="form">
+  		<div class="form-group">
+    		<label for="exampleInputEmail1">教师姓名:</label>
+    		<input type="email" class="form-control" id="exampleInputEmail1" placeholder="您的姓名或称呼">
+  		</div>
+  		<div class="form-group">
+    		<label for="exampleInputPassword1">所在学校:</label>
+    		<input type="text" class="form-control" id="exampleInputText" placeholder="所在学校">
+  		</div>
+  		<div class="form-group">
+    		<label for="exampleInputPassword1">联系电话:</label>
+    		<input type="text" class="form-control" id="exampleInputText" placeholder="手机或固话">
+  		</div>
+  		<div class="form-group">
+    		<label for="exampleInputPassword1">联系邮箱:</label>
+    		<input type="text" class="form-control" id="exampleInputText" placeholder="电子邮箱">
+  		</div>
+  		<div class="form-group">
+  			<label for="exampleInputPassword1">教授课程:</label>
+  			<select>
+  				<option value ="volvo">Karel机器人</option>
+  				<option value ="saab">3D作图</option>
+  				<option value="opel">Python课程</option>			
+  			</select>
+  		</div>
+  		
+  		<div class="form-group">
+    		<label for="exampleInputFile">课程建议</label>
+    		<input type="file" id="exampleInputFile">
+    		<p class="help-block">对本课程和活动安排的建议.</p>
+  		</div>
+  		
+  		<div class="checkbox">
+    		<label>
+    			
+      			<input type="checkbox"> 同意<a href="/">服务条款</a>
+    		</label>
+  		</div>
+  		<button type="submit" class="btn btn-default">Submit</button>
+	</form>
+  </div>
+</div>
+<hr/>
+<h2>课表</h2>
+
+	</body>
+</html>

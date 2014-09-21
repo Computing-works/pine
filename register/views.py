@@ -87,7 +87,7 @@ def account_logout_view(request, **args):
     return HttpResponsePermanentRedirect('/')
 
 def about_view(request):
-    return render(request,'courses/karel.html')
+    return render(request,'courses/karel.html',{'MEDIA_URL':'/media/'})
 
 def nclab_view(request):
     return render(request,'nclab/results.html')
