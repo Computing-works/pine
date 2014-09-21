@@ -27,13 +27,7 @@ urlpatterns = patterns('',
     url(r'^weblog/', include('zinnia.urls')),
     url(r'^comments/', include('django.contrib.comments.urls')),
     url(r'^wechat/$', 'wechat.views.index'),
-<<<<<<< HEAD
-    url(r'^rest/', include('restframe.urls')) 
-=======
-    
-    url(r'^rest-framework/', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')) 
->>>>>>> 219444a9e0d755e65c8e12f2ffbd2e4fb581975e
+    url(r'^rest/', include('restframe.urls')),
 )
 
 if settings.DEBUG:
