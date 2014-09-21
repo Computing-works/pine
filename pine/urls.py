@@ -1,11 +1,24 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
+from django.contrib.auth.models import User, Group
+from rest_framework import viewsets, routers
+
 from django.conf import settings
 
 admin.autodiscover()
 
 import settings
+
+class UserViewSet(viewsets.ModelViewSet):
+    model = User
+
+class GroupViewSet(viewsets.ModelViewSet):
+    model = Group
+
+router = routers.DefaultRouter()
+router.register(r'users', UserViewSet)
+router.register(r'groups', GroupViewSet)
 
 urlpatterns = patterns('',
     url(r'^', include('register.urls',namespace='regis')),
@@ -14,7 +27,13 @@ urlpatterns = patterns('',
     url(r'^weblog/', include('zinnia.urls')),
     url(r'^comments/', include('django.contrib.comments.urls')),
     url(r'^wechat/$', 'wechat.views.index'),
+<<<<<<< HEAD
     url(r'^rest/', include('restframe.urls')) 
+=======
+    
+    url(r'^rest-framework/', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')) 
+>>>>>>> 219444a9e0d755e65c8e12f2ffbd2e4fb581975e
 )
 
 if settings.DEBUG:
