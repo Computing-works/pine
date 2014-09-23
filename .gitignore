@@ -1,6 +1,4 @@
 # Custom files
-/pine/conf.py
-/pine/settings.py
 
 
 #################
@@ -219,5 +217,4 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
-
 pine/conf.py
