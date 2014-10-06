@@ -4,6 +4,7 @@
 {% load url from future %} 
 
 {% block content %}
+	
     <h2>
         {% block header %}
         {% endblock %}
@@ -30,7 +31,7 @@
 
     {% block prolog %}
     {% endblock %}
-
+	
     <div class="well">
         <form id="form" class="form-horizontal" method="post" 
         		action=".{% if next %}/?next={{ next }}{% endif %}"
@@ -71,4 +72,8 @@
 
     {% block epilog %}
     {% endblock %}
+    <hr />
+    {% load staticfiles %}
+    <a href="{% url 'social:begin' 'douban-oauth2' %}"><img src="{% static 'img/douban/login_with_douban_32.png' %}" alt="豆瓣登陆"></a>
+	
 {% endblock %}
