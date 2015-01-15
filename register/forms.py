@@ -151,7 +151,7 @@ class RegistrationForm(forms.Form):
 
         raise forms.ValidationError('Passwords do not match.')
 
-class CoursesForm(forms.Form):
+class RegisterForm(forms.Form):
     
     error_css_class = 'error'
     required_css_class = 'required'

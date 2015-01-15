@@ -7,7 +7,7 @@ from django.contrib.auth.views import login,logout
 
 from django.contrib.auth.models import User
 
-from register.forms import RegisterForm,RegistrationForm
+from register.forms import RegisterForm, RegistrationForm
 
 from django.conf import settings
 
