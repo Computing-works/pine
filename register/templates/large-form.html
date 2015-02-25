@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% load bootstrap_toolkit %}  
+{% load url from future %} 
+
+{% block content %}
+	
+    <h2>
+        {% block header %}
+        {% endblock %}
+    </h2>
+
+    {% if form.errors %}
+        <div class="note error">
+            您提交的数据有错误. 
+            <br /> 请修正后重新提交表单.
+        </div>
+    {% endif %}
+
+    {% if error %}
+        <div class="note error">
+            <b>错误:</b> {{ error|safe }}
+        </div>
+    {% endif %}
+
+    {% if message %}
+        <div class="note success">
+            {{ message|safe }}
+        </div>
+    {% endif %}
+
+    {% block prolog %}
+    {% endblock %}
+	
+    <div class="well">
+        <form id="form" class="form-horizontal" method="post" 
+        		action=".{% if next %}/?next={{ next }}{% endif %}"
+            	{% block encoding %}{% endblock %} 
+            	{% if form.is_multipart %} enctype="multipart/form-data" {% endif %}> 
+            {% csrf_token %}
+            <ul>
+            {% for field in form %}
+                {% if not field.is_hidden %}
+                	<li class="{% if field.errors %}error{% endif %}">
+
+                	{{ field.label_tag }}
+                	<br />
+                	{{ field }}
+                	{% if field.errors %}
+                    	{% for error in field.errors %}
+                    		<span><b>错误:</b> {{ error|safe }}</span>
+                    	{% endfor %}
+                	{% else %}
+                    	{% if field.help_text %}
+                    		<span>{{ field.help_text|safe }}</span>
+                    	{% endif %}
+                	{% endif %}
+                	</li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+				<!-- {{form|as_bootstrap:"horizontal"}} -->
+            {% for field in form %}
+                {% if field.is_hidden %}
+                	{{ field }}
+                {% endif %}
+            {% endfor %}
+
+            <button id="submit" type="submit">{% block submit %}Submit{% endblock %}</button>
+        </form>
+    </div>
+
+    {% block epilog %}
+    {% endblock %}
+    <hr />
+    {% load staticfiles %}
+    <a href="{% url 'social:begin' 'douban-oauth2' %}"><img src="{% static 'img/douban/login_with_douban_32.png' %}" alt="豆瓣登陆"></a>
+	
+{% endblock %}

@@ -1,3 +1,6 @@
+# Custom files
+
+
 #################
 ## Eclipse
 #################
@@ -214,3 +217,5 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+pine/conf.py
+pine/settings.py

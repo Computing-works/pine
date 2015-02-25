@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Karel机器人</h2>
+<div class="box">
+	<div class="title">Karel的故事</div>
+	<br/>
+	<p>编程课程"赢得编程领域的黑带"以77个游戏为特色. 
+		故事以一个名叫索菲亚的小女孩制造了一个名叫Karel的乐高机器人为开端. 
+		他们玩得很开心, 并且一起经历了很多冒险, 包括万圣节之夜,玉米谜宫和金矿. 
+		后来Karel拯救了动物园的珍贵动物, 并且通过移除燃烧化学工厂的炸弹阻止了一场巨大的灾难. 
+		从而, Karel和索菲亚变得非常出名. 他们频繁在电视和报纸上亮相. 
+		于是, 索菲亚被方托马斯留意了—— 一个臭名昭著的恶棍. 他绑架了索菲亚并且要挟她制造可以征服世界的机器人. 
+		而Karel非常难过, 它知道自己太弱小以至于不能找到她. 但是它没有放弃. 
+		它造访了Robo车间, 在那里它得到一颗CPU并且得到了全面升级. 
+		为了找到它的朋友, Karel踏上了史诗般的旅程. 它坐船离开. 但船在一场风暴中沉没了. 
+		它在海底旅行, 之后又来到丛林, 穿越沙漠, 同时一路提升自己的编程技能. 
+		最终它的技术变得非常熟练. 它征服了一座碉堡并且拯救了索菲亚. 
+		她们一起逃离了方托马斯, 而且一路经历了很多冒险. 
+		回到家后, Karel决定变成一名侦探. 它非常成功, 解决了很多谜题. 
+		因此它被晋级为特工. 在那里它继续解决令人兴奋的谜题, 防止灾难, 每天接受新的挑战. 
+		最终, 它成为了一个传说并且被记载入名人堂. 
+		</p>
+</div>
+<div class="box">
+	<div class="title">技能进阶</div>
+	<br/>
+	<p>  该课程包括11个部分（包括带和段). 
+		每个部分包含7个场景游戏, 它们专为某一特定的编程技术而设计：</p>
+	<br/>
+	<ul>
+		<li><b>热身</b>(白带): 简单的逻辑问题,用鼠标操作机器人.</li>
+		<li><b>Robo车间</b>(黄带1段): 输入由基本命令组成的简单程序.</li>
+		<li><b>图书馆</b>(黄带2段): repeat循环.</li>
+		<li><b>旅程开始</b>(黄带3段): 条件判断.</li>
+		<li><b>堡垒</b>(黄带4段): while循环.</li>
+		<li><b>自由</b>(紫带1段): 自定义命令.</li>
+		<li><b>战地</b>(紫带2段): 变量.</li>
+		<li><b>重返</b>(紫带3段): python列表.</li>
+		<li><b>侦探</b>(黑带1段): 递归.</li>
+		<li><b>特工</b>(黑带2段): 高级应用.</li>
+		<li><b>名人堂</b>(杰出及奖金): 真正难题.</li>
+	</ul>
+	<p>请参见: <a href="http://karel.readthedocs.org/zh_CN/latest/p01.html" target="_blank">免费教材</a></p>
+	
+	<table >
+		<tr>
+			<td width="56%">
+				<p>欢迎关注我们的微信公众号: <br/> <img style="width: 120px; height: 120px" src="{{MEDIA_URL}}img/current/karel-qr.jpg"/></p>  			
+			</td>
+			<!-- <td style="padding-left: 20px; border-right-style:dotted; border-width: 1px;">
+				<p>手机支付宝小额资助,谢谢! <br/> <img style="width: 120px; height: 120px" src="{{MEDIA_URL}}img/current/karel-qr.jpg"/></p>
+			</td> -->
+		</tr>
+	</table>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    
+{% load bootstrap_toolkit %}  
+{% load url from future %} 
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+    	{% block title %}
+        <title>Computing - Works</title>
+        {% endblock %}
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<link href="//d4yt8xl9b7in.cloudfront.net/assets/favicon-ec1c49d2d16026c03484fa43c0d3a237.ico" 
+    				rel="shortcut icon" type="image/vnd.microsoft.icon" />
+    	
+    	{% bootstrap_stylesheet_tag %}  
+    	{% bootstrap_stylesheet_tag "responsive" %}
+        
+        <link type="text/css" href="{{ MEDIA_URL }}css/style.css" rel="stylesheet" />
+        <link type="text/css" href="{{ MEDIA_URL }}css/menus.css" rel="stylesheet" />
+        <link type="text/css" href="{{ MEDIA_URL }}css/boxes.css" rel="stylesheet" />
+        <link type="text/css" href="{{ MEDIA_URL }}css/forms.css" rel="stylesheet" />
+        <link type="text/css" href="{{ MEDIA_URL }}css/notes.css" rel="stylesheet" />
+
+        <script src="{{ MEDIA_URL }}js/jquery/jquery.js"></script>
+        {% bootstrap_javascript_tag %}  
+    	{% block extra_head %}{% endblock %}
+
+		<script type="text/javascript">
+
+  			var _gaq = _gaq || [];
+  			_gaq.push(['_setAccount', 'UA-15768242-11']);
+  			_gaq.push(['_trackPageview']);
+
+  			(function() {
+    			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  			})();
+
+		</script>
+
+
+        {% block styles %}{% endblock %}
+        {% block scripts %}{% endblock %}
+    </head>
+    <body>
+        <div id="background">
+            <div id="container">
+                <div id="header">
+                    {% if user.is_authenticated %}
+                        <span class="bold">
+                            {{ user.get_full_name }}
+                        </span>
+                        {% if user.is_staff and user.is_superuser %}
+                            (<a href="/admin/">admin</a>)
+                        {% endif %}
+                        <span class="bar">|</span>
+                        <a href="/account/logout/">logout</a>
+                    {% else %}
+                        <a href="/account/login/">登陆</a>
+                        <span class="bar color">|</span>
+                        <a href="{% url 'regis:create_user' %}">创建帐户</a>
+                    {% endif %}
+                </div>
+                
+                <div id="banner">	
+                </div>
+                
+                <div class="column left">
+                    <div class="box">
+                        <div class="title">主菜单</div>
+                        <ul class="menu">
+                            <li><a href="/">主 页</a></li>
+                            <li><a href="{% url 'regis:about' %}"><b>Karel机器人简介</b></a></li>
+                            <li><a href="/weblog/"><b>活动博客</b></a></li>
+                            <li><a href="/venue/">活动地点</a></li>
+                            <li><a href="/committees/">教师和成员</a></li>
+                            {% if user_count > 50 %}
+                            	<li><a href="/participants/"> 参加者列表 </a></li>
+                            {% endif %} 
+                            <li><a href="/sponsors/">活动赞助方</a></li>
+                            <li><a href="/payment/">注册费用</a></li>
+                            <li><a href="/sponsorship/">资助</a></li>
+                            <li><a href="/contact/">联系</a></li>
+                        </ul>
+                    </div>
+                    {% if user.is_authenticated %}
+                    <div class="box">
+                        <div class="title">用户菜单</div>
+                        <ul class="menu">
+                            <li><a href="/account/">用户家目录</a></li>
+                            <li><a href="/account/profile/">编辑帐户</a></li>
+                            {% if ENABLE_ABSTRACT_SUBMISSION %}
+                            	<li><a href="/account/abstracts/">提交报名表</a></li>
+                            {% endif %}
+                            <li><a href="/account/password/change/">更改密码</a></li>
+                            <li><a href="/account/delete/">删除帐户</a></li>
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="column right">
+                	<style type="text/css">
+						#listImgRollUp { background:#eee; height:790px; overflow:hidden;}
+						#listImgRollUp li { line-height:24px;}
+					</style>
+                    <div id="listImgRollUp" class="box">
+                    	<ul class="list">
+                        	<li><img src="{{ MEDIA_URL }}img/current/img-1.png" /></li>
+                         	<li><img src="{{ MEDIA_URL }}img/current/img-2.png" /></li>
+                        	<li><img src="{{ MEDIA_URL }}img/current/img-3.png" /></li>
+                        	<li><img src="{{ MEDIA_URL }}img/current/img-4.png" /></li>
+                        	<li><img src="{{ MEDIA_URL }}img/current/img-5.png" /></li>
+                        	<li><img src="{{ MEDIA_URL }}img/current/img-6.png" /></li>
+                        	<li><img src="{{ MEDIA_URL }}img/current/img-7.png" /></li>
+                        	<li><img src="{{ MEDIA_URL }}img/current/img-8.png" /></li>
+                         	<li><img src="{{ MEDIA_URL }}img/current/img-9.png" /></li>
+                        	<li><img src="{{ MEDIA_URL }}img/current/img-10.png" /></li>
+                        	<li><img src="{{ MEDIA_URL }}img/current/img-11.png" /></li>
+                        	<li><img src="{{ MEDIA_URL }}img/current/img-12.png" /></li>
+                        	{% if not user.is_authenticated %}
+                        		<li><img src="{{ MEDIA_URL }}img/current/img-8.png" /></li>
+                        	{% endif %}
+                        </ul>
+                    </div>
+                    <script type="text/javascript">
+						$(function(){
+							var rollH=$("#listImgRollUp").height();
+							var listH=$("#listImgRollUp .list").height();
+							if(listH>rollH){
+								var martop=0;
+								$("#listImgRollUp .list").clone().attr("class","").appendTo("#listImgRollUp");
+								function rollImg(){
+									martop++;
+		
+									if(martop>listH){
+										martop=0;
+										$("#listImgRollUp .list").css("margin-top",-martop);
+									}
+									else{
+										$("#listImgRollUp .list").css("margin-top",-martop);
+									}
+								}
+								var int=setInterval(rollImg,50);
+								$("#listImgRollUp").hover(
+									function(){
+										clearInterval(int);
+									},
+									function(){
+										int=setInterval(rollImg,50);
+									}
+								);
+							}
+						});
+					</script>
+                </div>
+                <div class="column left">
+                    <div class="box">
+                        <div class="title">重要日期</div>
+                        <ul class="list">
+                            <li class="head">开始注册</li>
+                            <li class="tail">根据本年度报名情况动态调整课程安排及增开班级安排,
+                            	 				注册过程将一直持续!</li>
+                            <li class="head">May 31, {{ conf_year }}</li>
+                            <li class="tail">通知参与人数,征求组织课程安排的意见.</li>
+                            <li class="head">June 15, {{ conf_year }}</li>
+                            <li class="tail">通知确定的开班安排计划.(时间/地点)</li>
+                            <li class="head">June 25, {{ conf_year }}</li>
+                            <li class="tail">支付注册费用.</li>
+                            <li class="head">July 10, {{ conf_year }}</li>
+                            <li class="tail">开班授课.</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <div class="title">活动剪影</div>
+                        	<ul class="menu">
+								<li><a href="/">Karel 2013</a></li>
+        	                	<li><a href="/">{{ conf_name_upper }} 2012</a></li>
+								<li><a href="/">Karel 2011</a></li>
+								<li><a href="/">{{ conf_name_upper }} 2010</a></li>
+							</ul>
+                    	</div>
+                	</div>
+                <!--<div class="column right">
+                    {% if user.is_authenticated %}
+                        <div style="height: 70px"></div>
+                    {% else %}
+                        <div style="height: 61px"></div>
+                    {% endif %}
+                    <div class="box">
+                        <img src="{{ MEDIA_URL }}img/current/img-7.png" />   
+                        <img src="{{ MEDIA_URL }}img/current/img-8.png" />
+                        <img src="{{ MEDIA_URL }}img/current/img-9.png" />
+                        <img src="{{ MEDIA_URL }}img/current/img-10.png" />
+                        <img src="{{ MEDIA_URL }}img/current/img-11.png" />
+                        <img src="{{ MEDIA_URL }}img/current/img-12.png" />
+                    </div>
+                </div>-->
+                
+                	{% block map %}
+					{% endblock %}
+               
+                <div id="content">
+                    {% block content %}
+                        {% block message %}
+                            {% if message %}
+                                <div class="note success">
+                                    {{ message }}
+                                </div>
+                            {% endif %}
+                        {% endblock %}
+                        {% block secret %}
+                        {% endblock %}
+                    {% endblock %}
+                </div>
+            </div>
+
+            <div id="clearer">
+            </div>
+			
+            <div id="footer">
+                Copyright &copy; 2015-{{ conf_year }} 
+                <a href="http://computing-works.com">Computing Works</a> All Rights Reserved. | Powered by  <a href="https://www.digitalocean.com/?refcode=821117b18219" target="_blank">   <img src="{{ MEDIA_URL }}img/logo/foot_logo.png"> </a>
+            </div>
+        </div>
+        {% block tail_scripts %}
+        {% endblock %}
+    </body>
+</html>
